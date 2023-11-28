@@ -3,31 +3,31 @@ import React, { useState } from "react";
 import CardBack from "./cardBack";
 import Image from "next/image";
 const Card = ({ data }) => {
-  const dummyData = [
+  const labels = [
     {
       image: "/icons/mana.png",
       title: "Mana cost",
-      value: "40",
+      value: `${data.manaCost}`
     },
     {
       image: "/icons/cmc.png",
       title: "C.M.C",
-      value: "40",
+      value: `${data.cmc}`
     },
     {
       image: "/icons/gem.png",
       title: "Rarity",
-      value: "40",
+      value: `${data.rarity}`
     },
     {
       image: "/icons/sword.png",
       title: "Power",
-      value: "40",
+      value: `${data.power}`
     },
     {
       image: "/icons/shield.png",
       title: "Toughness",
-      value: "40",
+      value: `${data.toughness}`
     },
   ];
 
@@ -45,7 +45,7 @@ const Card = ({ data }) => {
       >
         <div className="absolute inset-0 h-[310px] w-[233px]">
           <img
-            src="https://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=129465&type=card"
+            src={data.imageUrl == null ? `/image/card.png`: data.imageUrl}
             alt="Imagen"
             className=" h-auto object-cover -m-1 sm:max-w-xs shadow-black/40"
           />
@@ -59,17 +59,20 @@ const Card = ({ data }) => {
             <div className="border-4 border-black bg-gradient-card h-full">
               <div className="m-2 text-soft-green">
                 <div className="text-center">
-                  <h3 className="font-bold pt-2">Ancestor's Chosen</h3>
-                  <h4 className="text-sm pt-3 italic">
-                    “The will of all, by my hand done.”
+                  <h3 className="font-bold pt-2">{data.name}</h3>
+                  <h4 className="text-[10px] pt-3 italic">
+                    {data.flavor == null ? `No Flavor` : `"${data.flavor}"`}
                   </h4>
                 </div>
                 <div className="flex text-[12px]  ">
                   <div className="w-full ">
-                    {dummyData &&
-                      dummyData.map((item) => {
+                    {labels &&
+                      labels.map((item, index) => {
                         return (
-                          <div className="flex items-center justify-between">
+                          <div
+                            className="flex items-center justify-between"
+                            key={index}
+                          >
                             <div className="flex items-center my-2 font-semibold">
                               <figure>
                                 <Image
@@ -81,7 +84,9 @@ const Card = ({ data }) => {
                               </figure>
                               <figcaption className="ml-2">{`${item.title} :`}</figcaption>
                             </div>
-                            <p className="text-right my-2 inline text-white">{item.value}</p>
+                            <p className="text-right my-2 inline text-white">
+                              {item.value}
+                            </p>
                           </div>
                         );
                       })}
