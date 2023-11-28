@@ -33,11 +33,11 @@ const LoadMore = () => {
   }, [inView]);
   return (
     <>
-      <div className="pt-3 flex flex-wrap gap-3 w-11/12 my-0 mx-auto justify-around">
+      <div className="pt-8 flex flex-wrap w-11/12 my-0 mx-auto justify-center">
         {cards ? (
           cards.map((item, index) => {
             return (
-              <div className="w-1/5">
+              <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 px-4  py-4">
                 <Card key={index} data={item} />
               </div>
             );
