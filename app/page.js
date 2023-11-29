@@ -24,8 +24,11 @@ export default function Home() {
 
   const handleSearch = async (searchTerm) => {
     try {
+      // const response = await fetch(
+      //   `https://api.magicthegathering.io/v1/cards?name=${searchTerm}`
+      // );
       const response = await fetch(
-        `https://api.magicthegathering.io/v1/cards?name=${searchTerm}`
+        `https://api.magicthegathering.io/v1/cards?name=${searchTerm}&page=1&pageSize=20`
       );
       const data = await response.json();
       const { cards } = data;
