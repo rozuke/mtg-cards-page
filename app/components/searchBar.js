@@ -29,7 +29,7 @@ const SearchBar = ({ handleSubmit }) => {
         className="ml-2 p-3 bg-gray-200 rounded-full focus:outline-none"
         onClick={handleForm}
       >
-        <Image src={"/icons/search.svg"} width={20} height={20} />
+        <Image src={"/icons/search.svg"} width={20} height={20} alt="search icon"/>
       </button>
     </form>
   );
