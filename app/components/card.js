@@ -46,7 +46,7 @@ const Card = ({ data }) => {
           <img
             src={data.imageUrl == null ? `/image/card.png` : data.imageUrl}
             alt="Imagen"
-            className=" h-full w-full object-cover -ml-2 -mt-1 sm:max-w-xs "
+            className=" h-full w-full object-cover -ml-2 -mt-1 sm:max-w-xs"
           />
         </div>
         <div

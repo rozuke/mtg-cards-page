@@ -4,7 +4,6 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "https",
         hostname: "gatherer.wizards.com",
       },
     ],

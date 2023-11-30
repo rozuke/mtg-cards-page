@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 
 const CardBack = () => {
-  const dummyData = [
+  const labels = [
     {
       image: "/icons/mana.png",
       title: "Mana cost",
@@ -48,10 +48,10 @@ const CardBack = () => {
           </div>
           <div className="flex text-sm">
             <div className="w-7/12 ">
-              {dummyData &&
-                dummyData.map((item) => {
+              {labels &&
+                labels.map((item, index) => {
                   return (
-                    <div className="flex items-center my-2 font-semibold">
+                    <div key={index} className="flex items-center my-2 font-semibold">
                       <figure>
                         <Image
                           src={item.image}
@@ -66,8 +66,8 @@ const CardBack = () => {
                 })}
             </div>
             <div className="w-5/12 ">
-              {dummyData &&
-                dummyData.map((item) => <p className="text-right my-2">{item.value}</p>)}
+              {labels &&
+                labels.map((item, index) => <p key={index} className="text-right my-2">{item.value}</p>)}
             </div>
           </div>
         </div>
